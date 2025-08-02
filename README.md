@@ -1,4 +1,4 @@
-# ☕ Brew & Bean - Premium Coffee Shop Menu
+# ☕ no filter. - Premium Coffee Shop Menu
 
 An absolutely stunning, animated coffee shop menu website designed to wow your clients at first sight!
 
@@ -6,10 +6,10 @@ An absolutely stunning, animated coffee shop menu website designed to wow your c
 
 ### 🎨 **Stunning Visual Design**
 
-- **Premium coffee-themed color palette** with warm browns, creams, and gold accents
-- **Beautiful typography** using Playfair Display and Inter fonts
+- **Premium coffee-themed color palette** with warm greens, charcoals, and light grays
+- **Beautiful typography** using Angelle and Montserrat fonts
 - **Gradient backgrounds** and soft shadow effects
-- **Custom coffee cup loading animation** with steam effects
+- **Custom coffee filter loading animation** with steam effects
 
 ### 🌟 **Amazing Animations**
 
@@ -45,18 +45,21 @@ An absolutely stunning, animated coffee shop menu website designed to wow your c
 
 ## 🚀 **Menu Sections**
 
-1. **Signature Coffee** ☕ - Premium house blends and specialties
-2. **Espresso Classics** 🫘 - Traditional espresso-based drinks
-3. **Specialty Drinks** ✨ - Unique crafted beverages
-4. **Fresh Pastries** 🥐 - Delicious baked goods
+1. **Coffee** ☕ - Premium espresso-based drinks and classics
+2. **Latte** 🥛 - Specialty lattes and flavored variations
+3. **Frappe** 🧊 - Refreshing blended ice drinks
+4. **Matcha** 🍃 - Authentic ceremonial grade matcha drinks
+5. **Tea & More** 🫖 - Teas, hot chocolate, and specialty beverages
+6. **Add Ons** ➕ - Milk alternatives and extras
 
 ## 🎪 **Special Effects**
 
-- **Loading screen** with animated coffee cup and steam
-- **Floating coffee bean particles** throughout the page
+- **Loading screen** with animated coffee filter and steam
+- **Floating particles** throughout the page
 - **Scroll progress bar** at the top
 - **Section reveal animations** as you scroll
 - **Interactive hover states** on all clickable elements
+- **Video autoplay** for matcha preparation showcase
 
 ## 💻 **Technology Stack**
 
@@ -64,7 +67,7 @@ An absolutely stunning, animated coffee shop menu website designed to wow your c
 - **Vanilla JavaScript** - No framework bloat, maximum performance
 - **GSAP** - Professional animation library
 - **CSS3** - Modern styling with custom properties
-- **Google Fonts** - Beautiful typography
+- **Google Fonts** - Beautiful typography (Angelle & Montserrat)
 
 ## 🎯 **Perfect For**
 

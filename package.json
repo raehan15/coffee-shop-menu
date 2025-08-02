@@ -1,8 +1,9 @@
 {
-  "name": "my-app",
+  "name": "no-filter-coffee-menu",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "no filter. - Premium coffee shop menu with authentic coffee and ceremonial grade matcha",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

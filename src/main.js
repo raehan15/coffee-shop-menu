@@ -7,148 +7,109 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const app = document.querySelector("#app");
 
-// Coffee menu data for "no filter"
+// Coffee menu data for "no filter" - matching the image (icons removed)
 const menuData = {
-  signature: {
-    title: "Signature Blends",
-    icon: "☕",
+  coffee: {
+    title: "Coffee",
     items: [
-      {
-        name: "no filter. house blend",
-        description:
-          "Our signature roast with notes of dark chocolate and caramel, unfiltered perfection",
-        price: "$6.50",
-      },
-      {
-        name: "pure vanilla cold brew",
-        description:
-          "12-hour cold brew with Madagascar vanilla, no artificial flavors",
-        price: "$5.75",
-      },
-      {
-        name: "raw honey latte", 
-        description:
-          "Smooth espresso with steamed oat milk and local raw honey",
-        price: "$5.25",
-      },
-      {
-        name: "authentic americano",
-        description:
-          "Double shot espresso with hot water, simple and uncompromising",
-        price: "$4.75",
-      },
+      { name: "Espresso", price: "485" },
+      { name: "Americano (Hot)", price: "550" },
+      { name: "Iced Americano", price: "550" },
+      { name: "Cortado", price: "600" },
+      { name: "Cappuccino", price: "650" },
+      { name: "Classic Affogato", price: "650" },
+      { name: "Dirty Espresso", price: "675" },
+      { name: "Cold Brew", price: "650" },
     ],
   },
-  espresso: {
-    title: "Pure Espresso",
-    icon: "🫘",
+  latte: {
+    title: "Latte",
     items: [
-      {
-        name: "single origin shot",
-        description: "Rich, full-bodied shot from our single-origin beans",
-        price: "$3.25",
-      },
-      {
-        name: "black americano",
-        description:
-          "Fresh espresso shots with hot water, no frills",
-        price: "$3.75",
-      },
-      {
-        name: "classic cappuccino",
-        description: "Equal parts espresso, steamed milk, and natural foam",
-        price: "$4.50",
-      },
-      {
-        name: "flat white",
-        description: "Double shot espresso with microfoam oat milk",
-        price: "$4.75",
-      },
+      { name: "Latte", hot: "650", cold: "650" },
+      { name: "Vanilla Latte", hot: "675", cold: "710" },
+      { name: "Spanish Latte", hot: "690", cold: "695" },
+      { name: "Coconut Latte", hot: "675", cold: "710" },
+      { name: "Tiramisu Latte", hot: "700", cold: "750" },
+      { name: "Salted Caramel Latte", hot: "675", cold: "710" },
+      { name: "Mocha Latte", hot: "700", cold: "710" },
+      { name: "Hazelnut Latte", hot: "675", cold: "710" },
     ],
   },
-  specialty: {
-    title: "Unfiltered Specials",
-    icon: "✨",
+  frappe: {
+    title: "Frappe",
     items: [
-      {
-        name: "lavender calm",
-        description:
-          "Pure lavender with raw honey and steamed milk, no artificial additives",
-        price: "$5.95",
-      },
-      {
-        name: "spiced chai authentic",
-        description: "House-ground chai spices with espresso and oat milk",
-        price: "$5.50",
-      },
-      {
-        name: "matcha pure",
-        description:
-          "Ceremonial grade matcha with oat milk, no sweeteners added",
-        price: "$6.25",
-      },
-      {
-        name: "golden turmeric",
-        description:
-          "Fresh turmeric root with coconut milk and warming spices",
-        price: "$4.95",
-      },
+      { name: "Mocha Frappe", price: "850" },
+      { name: "Vanilla Frappe", price: "850" },
+      { name: "Salted Caramel Frappe", price: "850" },
+      { name: "Mixed Berry Frappe", price: "900" },
     ],
   },
-  pastries: {
-    title: "Real Baked Goods",
-    icon: "🥐",
+  matcha: {
+    title: "Matcha",
     items: [
-      {
-        name: "butter croissant",
-        description:
-          "Classic French croissant with real butter, baked fresh daily",
-        price: "$4.25",
-      },
-      {
-        name: "cinnamon roll", 
-        description: "House-made roll with Ceylon cinnamon and brown butter",
-        price: "$3.75",
-      },
-      {
-        name: "blueberry muffin",
-        description:
-          "Fresh blueberries in organic flour muffin, no preservatives",
-        price: "$3.95",
-      },
-      {
-        name: "dark chocolate cookie",
-        description: "Belgian dark chocolate chunks in organic cookie dough",
-        price: "$3.50",
-      },
+      { name: "Matcha (Hot)", price: "750" },
+      { name: "Matcha (Cold)", price: "750" },
+      { name: "Strawberry Matcha", price: "950" },
+      { name: "Coconut Matcha", price: "950" },
+      { name: "Vanilla Matcha", price: "950" },
+    ],
+  },
+  tea: {
+    title: "Tea & More",
+    items: [
+      { name: "Peach Iced Tea", price: "550" },
+      { name: "Yuzo Iced Tea", price: "590" },
+      { name: "Mango Iced Tea", price: "550" },
+      { name: "Belgian Hot Chocolate", price: "675" },
+      { name: "Nutty Shake", price: "900" },
+    ],
+  },
+  addons: {
+    title: "Add Ons",
+    items: [
+      { name: "Lactose Free Milk", price: "50" },
+      { name: "Low Fat Milk", price: "50" },
+      { name: "Oat Milk", price: "550" },
+      { name: "Extra Shot", price: "250" },
+      { name: "Water", price: "100" },
+      { name: "Cold Foam", price: "100" },
     ],
   },
 };
 
-const specialtyFeatures = [
-  {
-    icon: "🌱",
-    title: "No Artificial Ingredients",
-    description:
-      "Pure, natural ingredients only - no artificial flavors, colors, or preservatives",
-  },
-  {
-    icon: "👨‍🍳",
-    title: "Authentic Brewing",
-    description:
-      "Traditional brewing methods and real craftsmanship, no shortcuts taken",
-  },
-  {
-    icon: "🥛",
-    title: "Real Milk Alternatives",
-    description: "Fresh oat, almond, and coconut milk made in-house daily",
-  },
-  {
-    icon: "⚡",
-    title: "Unfiltered Quality",
-    description: "Every cup made fresh to order, no compromises on taste",
-  },
-];
+const specialtyContent = {
+  title: "Our Specialty",
+  subtitle: "Ceremonial Uji Matcha",
+  description:
+    "Pakistan's only authentic ceremonial grade Uji matcha experience",
+  features: [
+    {
+      icon: "🍃",
+      title: "Authentic Uji Origin",
+      description:
+        "Direct from Uji, Japan - the birthplace of ceremonial matcha, where monks first cultivated this sacred tea over 800 years ago",
+    },
+    {
+      icon: "🏆",
+      title: "Ceremonial Grade Only",
+      description:
+        "The highest quality matcha available - stone-ground, shade-grown tencha leaves with vibrant jade color and umami richness",
+    },
+    {
+      icon: "🇵🇰",
+      title: "First in Pakistan",
+      description:
+        "We're proud to be the only cafe in Pakistan offering authentic ceremonial grade Uji matcha, prepared with traditional Japanese techniques",
+    },
+    {
+      icon: "⚡",
+      title: "Handcrafted Daily",
+      description:
+        "Each cup whisked to perfection using traditional bamboo tools, creating the signature frothy texture and balanced flavor",
+    },
+  ],
+  cta: "Experience the difference that authentic ceremonial matcha makes",
+};
 
 // Create the main HTML structure
 function createHTML() {
@@ -168,7 +129,7 @@ function createHTML() {
     <nav class="nav" id="nav">
       <div class="nav-content">
         <div class="nav-logo">
-          <img src="/src/assets/logos/logo-secondary.png" alt="nf" class="nav-logo-img" style="height: 32px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+          <img src="/logos/logo-secondary.svg" alt="nf" class="nav-logo-img" style="height: 32px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
           <span class="nav-logo-text" style="display: none;">nf</span>
         </div>
         <ul class="nav-links">
@@ -182,7 +143,7 @@ function createHTML() {
     <!-- Header Section -->
     <header class="header" id="home">
       <div class="logo-container">
-        <img src="/src/assets/logos/logo-primary.png" alt="no filter." class="main-logo" style="max-height: 120px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <img src="/logos/logo-primary.svg" alt="no filter." class="main-logo" style="max-height: 120px; width: auto; filter: brightness(0) invert(1);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <h1 class="logo" style="display: none;">no filter.</h1>
       </div>
       <p class="tagline">authentic coffee. no compromises.</p>
@@ -202,7 +163,6 @@ function createHTML() {
               ([key, category]) => `
             <div class="category-card" data-category="${key}">
               <h3 class="category-title">
-                <span class="category-icon">${category.icon}</span>
                 ${category.title}
               </h3>
               <ul class="menu-items">
@@ -212,9 +172,14 @@ function createHTML() {
                   <li class="menu-item">
                     <div class="item-info">
                       <h3>${item.name}</h3>
-                      <p class="item-description">${item.description}</p>
                     </div>
-                    <span class="item-price">${item.price}</span>
+                    <div class="item-price">
+                      ${
+                        item.hot && item.cold
+                          ? `<span class="price-option">Hot: PKR ${item.hot}</span><span class="price-option">Cold: PKR ${item.cold}</span>`
+                          : `PKR ${item.price}`
+                      }
+                    </div>
                   </li>
                 `
                   )
@@ -229,19 +194,33 @@ function createHTML() {
 
       <!-- Specialty Section -->
       <section class="specialty-section" id="specialties">
-        <h2 class="section-title">Why Choose Brew & Bean?</h2>
-        <div class="specialty-grid">
-          ${specialtyFeatures
-            .map(
-              (feature) => `
-            <div class="specialty-card">
-              <span class="specialty-icon">${feature.icon}</span>
-              <h3 class="specialty-title">${feature.title}</h3>
-              <p class="specialty-description">${feature.description}</p>
-            </div>
-          `
-            )
-            .join("")}
+        <div class="specialty-header">
+          <h2 class="section-title">${specialtyContent.title}</h2>
+          <h3 class="specialty-subtitle">${specialtyContent.subtitle}</h3>
+          <p class="specialty-description">${specialtyContent.description}</p>
+        </div>
+        <div class="specialty-video-container">
+          <video 
+            id="matcha-video" 
+            class="specialty-video"
+            muted
+            playsinline
+            preload="auto"
+            poster="/videos/matcha-poster.jpg"
+          >
+            <source src="/videos/matcha-preparation.mp4" type="video/mp4">
+            <source src="/videos/matcha-preparation.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-overlay">
+            <p class="video-instruction">Scroll to experience the matcha journey</p>
+          </div>
+          <div class="video-progress">
+            <div class="video-progress-bar" id="video-progress-bar"></div>
+          </div>
+        </div>
+        <div class="specialty-cta">
+          <p class="cta-text">${specialtyContent.cta}</p>
         </div>
       </section>
     </main>
@@ -326,24 +305,108 @@ function initAnimations() {
     });
   });
 
-  // Specialty cards animation
-  gsap.utils.toArray(".specialty-card").forEach((card, index) => {
-    ScrollTrigger.create({
-      trigger: card,
-      start: "top 85%",
+  // Video scroll control for matcha preparation with scroll hijacking
+  const video = document.getElementById("matcha-video");
+  const videoContainer = document.querySelector(".specialty-video-container");
+  const progressBar = document.getElementById("video-progress-bar");
+
+  if (video && videoContainer) {
+    console.log("Video element found:", video);
+
+    let isVideoPlaying = false;
+    let videoScrollTrigger;
+
+    // Ensure video is ready
+    video.addEventListener("loadedmetadata", () => {
+      console.log("Video metadata loaded, duration:", video.duration);
+    });
+
+    video.addEventListener("loadeddata", () => {
+      console.log("Video data loaded, ready for playback");
+    });
+
+    video.addEventListener("error", (e) => {
+      console.error("Video error:", e);
+    });
+
+    // Create the main scroll trigger that hijacks scroll
+    videoScrollTrigger = ScrollTrigger.create({
+      trigger: ".specialty-video-container",
+      start: "center center", // Start when container center hits viewport center
+      end: "+=4000vh", // 10x longer scroll distance for much slower video playback
+      pin: true, // This pins the section during video playback
+      scrub: 1, // Smooth scrubbing
+      onUpdate: (self) => {
+        if (video.readyState >= 2) {
+          const progress = self.progress;
+          const duration = video.duration;
+          const newTime = progress * duration;
+
+          // Update video time
+          if (Math.abs(video.currentTime - newTime) > 0.1) {
+            video.currentTime = newTime;
+          }
+
+          // Update progress bar
+          if (progressBar) {
+            progressBar.style.width = progress * 100 + "%";
+          }
+
+          console.log(
+            "Video progress:",
+            (progress * 100).toFixed(1) + "%",
+            "Time:",
+            newTime.toFixed(2) + "s"
+          );
+        }
+      },
       onEnter: () => {
-        gsap.to(card, {
-          scale: 1,
-          rotationY: 0,
-          opacity: 1,
-          duration: 0.8,
-          delay: index * 0.15,
-          ease: "back.out(1.7)",
-        });
-        card.classList.add("animate");
+        console.log("Video section activated - scroll hijacked");
+        isVideoPlaying = true;
+        videoContainer.classList.add("playing");
+
+        // Hide the instruction overlay
+        const overlay = document.querySelector(".video-overlay");
+        if (overlay) {
+          gsap.to(overlay, { opacity: 0, duration: 0.5 });
+        }
+
+        // Video is already visible (poster shows), no need to change opacity
+      },
+      onLeave: () => {
+        console.log("Video section deactivated - scroll released");
+        isVideoPlaying = false;
+        videoContainer.classList.remove("playing");
+
+        // Show the instruction overlay when leaving
+        const overlay = document.querySelector(".video-overlay");
+        if (overlay) {
+          gsap.to(overlay, { opacity: 1, duration: 0.5 });
+        }
+      },
+      onLeaveBack: () => {
+        console.log("Video section left upward - returning to poster");
+        isVideoPlaying = false;
+        videoContainer.classList.remove("playing");
+
+        // Reset video to beginning (poster will show automatically)
+        video.currentTime = 0;
+
+        // Reset progress bar
+        if (progressBar) {
+          progressBar.style.width = "0%";
+        }
+
+        // Show the instruction overlay
+        const overlay = document.querySelector(".video-overlay");
+        if (overlay) {
+          gsap.to(overlay, { opacity: 1, duration: 0.5 });
+        }
       },
     });
-  });
+  } else {
+    console.error("Video element or container not found!");
+  }
 
   // Simple, reliable smooth scroll for navigation links
   document.querySelectorAll(".nav-links a").forEach((link) => {

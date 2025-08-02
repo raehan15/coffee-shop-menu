@@ -196,8 +196,6 @@ function createHTML() {
       <section class="specialty-section" id="specialties">
         <div class="specialty-header">
           <h2 class="section-title">${specialtyContent.title}</h2>
-          <h3 class="specialty-subtitle">${specialtyContent.subtitle}</h3>
-          <p class="specialty-description">${specialtyContent.description}</p>
         </div>
         <div class="specialty-video-container">
           <video 
@@ -213,7 +211,10 @@ function createHTML() {
             Your browser does not support the video tag.
           </video>
           <div class="video-overlay">
-            <p class="video-instruction">Scroll to experience the matcha journey</p>
+            <p class="video-instruction">Watch our authentic matcha preparation</p>
+          </div>
+          <div class="video-text-overlay">
+            <h3 class="video-text-title">Ceremonial Grade Uji Matcha</h3>
           </div>
           <div class="video-progress">
             <div class="video-progress-bar" id="video-progress-bar"></div>
@@ -305,16 +306,13 @@ function initAnimations() {
     });
   });
 
-  // Video scroll control for matcha preparation with scroll hijacking
+  // Video autoplay when in view
   const video = document.getElementById("matcha-video");
   const videoContainer = document.querySelector(".specialty-video-container");
   const progressBar = document.getElementById("video-progress-bar");
 
   if (video && videoContainer) {
     console.log("Video element found:", video);
-
-    let isVideoPlaying = false;
-    let videoScrollTrigger;
 
     // Ensure video is ready
     video.addEventListener("loadedmetadata", () => {
@@ -329,40 +327,22 @@ function initAnimations() {
       console.error("Video error:", e);
     });
 
-    // Create the main scroll trigger that hijacks scroll
-    videoScrollTrigger = ScrollTrigger.create({
+    // Update progress bar during video playback
+    video.addEventListener("timeupdate", () => {
+      if (video.duration && progressBar) {
+        const progress = (video.currentTime / video.duration) * 100;
+        progressBar.style.width = progress + "%";
+      }
+    });
+
+    // Create scroll trigger to play video when container is in view
+    ScrollTrigger.create({
       trigger: ".specialty-video-container",
-      start: "center center", // Start when container center hits viewport center
-      end: "+=4000vh", // 10x longer scroll distance for much slower video playback
-      pin: true, // This pins the section during video playback
-      scrub: 1, // Smooth scrubbing
-      onUpdate: (self) => {
-        if (video.readyState >= 2) {
-          const progress = self.progress;
-          const duration = video.duration;
-          const newTime = progress * duration;
-
-          // Update video time
-          if (Math.abs(video.currentTime - newTime) > 0.1) {
-            video.currentTime = newTime;
-          }
-
-          // Update progress bar
-          if (progressBar) {
-            progressBar.style.width = progress * 100 + "%";
-          }
-
-          console.log(
-            "Video progress:",
-            (progress * 100).toFixed(1) + "%",
-            "Time:",
-            newTime.toFixed(2) + "s"
-          );
-        }
-      },
+      start: "top 50%", // Start when container top hits 50% of viewport
+      end: "bottom 50%", // End when container bottom hits 50% of viewport
       onEnter: () => {
-        console.log("Video section activated - scroll hijacked");
-        isVideoPlaying = true;
+        console.log("Video section entered - starting video");
+        video.play();
         videoContainer.classList.add("playing");
 
         // Hide the instruction overlay
@@ -370,27 +350,28 @@ function initAnimations() {
         if (overlay) {
           gsap.to(overlay, { opacity: 0, duration: 0.5 });
         }
-
-        // Video is already visible (poster shows), no need to change opacity
       },
       onLeave: () => {
-        console.log("Video section deactivated - scroll released");
-        isVideoPlaying = false;
+        console.log("Video section left - pausing video");
+        video.pause();
         videoContainer.classList.remove("playing");
+      },
+      onEnterBack: () => {
+        console.log("Video section re-entered - resuming video");
+        video.play();
+        videoContainer.classList.add("playing");
 
-        // Show the instruction overlay when leaving
+        // Hide the instruction overlay
         const overlay = document.querySelector(".video-overlay");
         if (overlay) {
-          gsap.to(overlay, { opacity: 1, duration: 0.5 });
+          gsap.to(overlay, { opacity: 0, duration: 0.5 });
         }
       },
       onLeaveBack: () => {
-        console.log("Video section left upward - returning to poster");
-        isVideoPlaying = false;
-        videoContainer.classList.remove("playing");
-
-        // Reset video to beginning (poster will show automatically)
+        console.log("Video section left upward - resetting video");
+        video.pause();
         video.currentTime = 0;
+        videoContainer.classList.remove("playing");
 
         // Reset progress bar
         if (progressBar) {

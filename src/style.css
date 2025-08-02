@@ -5,7 +5,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Angelle", cursive;
 }
 
 /* Reset and Base Styles */
@@ -30,7 +30,7 @@ h6 {
 }
 
 body {
-  font-family: "Angelle", cursive;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   background: var(--light-gray);
@@ -181,7 +181,7 @@ body {
 }
 
 .logo {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Angelle", cursive;
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 300;
   letter-spacing: -2px;
@@ -213,7 +213,7 @@ body {
 }
 
 .tagline {
-  font-family: "Angelle", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-weight: 300;
   margin-bottom: 3rem;
@@ -358,7 +358,7 @@ body {
 }
 
 .nav-logo-text {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Angelle", cursive;
   font-weight: 600;
   color: var(--primary-green);
 }
@@ -407,7 +407,7 @@ body {
 }
 
 .section-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Angelle", cursive;
   font-size: clamp(2.5rem, 6vw, 4rem);
   text-align: center;
   margin-bottom: 3rem;
@@ -487,7 +487,7 @@ body {
 }
 
 .category-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Angelle", cursive;
   font-size: 1.8rem;
   color: var(--dark-charcoal);
   margin-bottom: 1.5rem;
@@ -537,7 +537,7 @@ body {
 }
 
 .item-info h3 {
-  font-family: "Angelle", cursive;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: var(--text-dark);
   margin-bottom: 0.3rem;
@@ -556,7 +556,7 @@ body {
 }
 
 .item-price {
-  font-family: "Angelle", cursive;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: var(--primary-green);
   font-size: 1.1rem;
@@ -569,7 +569,7 @@ body {
 }
 
 .price-option {
-  font-family: "Angelle", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   color: var(--primary-green);
   font-weight: 400;
@@ -598,7 +598,7 @@ body {
 }
 
 .specialty-subtitle {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Angelle", cursive;
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--primary-green);
@@ -652,6 +652,32 @@ body {
   transition: opacity 0.5s ease;
   pointer-events: none;
   z-index: 10;
+}
+
+.video-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 11;
+  text-align: center;
+}
+
+.video-text-title {
+  font-family: "Angelle", cursive;
+  font-size: 1.95rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.specialty-video-container.playing .video-text-overlay {
+  opacity: 1;
 }
 
 .video-instruction {
@@ -722,7 +748,7 @@ body {
 }
 
 .footer-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Angelle", cursive;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -832,6 +858,14 @@ body {
     padding: 0.8rem 1.5rem;
   }
 
+  .video-text-overlay {
+    max-width: 90%;
+  }
+
+  .video-text-title {
+    font-size: 1.25rem;
+  }
+
   .video-instruction {
     font-size: 0.9rem;
   }
@@ -868,6 +902,14 @@ body {
   .category-card {
     padding: 1rem;
   }
+
+  .video-text-overlay {
+    max-width: 95%;
+  }
+
+  .video-text-title {
+    font-size: 1rem;
+  }
 }
 
 /* Smooth Scrolling */
@@ -897,7 +939,7 @@ html {
 /* Loading Screen Enhancement */
 .loading-text {
   color: var(--light-gray);
-  font-family: "Angelle", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   margin-top: 2rem;
   opacity: 0;

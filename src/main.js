@@ -7,118 +7,118 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const app = document.querySelector("#app");
 
-// Coffee menu data
+// Coffee menu data for "no filter"
 const menuData = {
   signature: {
-    title: "Signature Coffee",
+    title: "Signature Blends",
     icon: "☕",
     items: [
       {
-        name: "Brew & Bean Signature",
+        name: "no filter. house blend",
         description:
-          "Our house blend with hints of chocolate and caramel, topped with artisan foam art",
+          "Our signature roast with notes of dark chocolate and caramel, unfiltered perfection",
         price: "$6.50",
       },
       {
-        name: "Golden Caramel Macchiato",
+        name: "pure vanilla cold brew",
         description:
-          "Espresso with steamed milk, vanilla syrup, and our signature caramel drizzle",
+          "12-hour cold brew with Madagascar vanilla, no artificial flavors",
         price: "$5.75",
       },
       {
-        name: "Honey Cinnamon Latte",
+        name: "raw honey latte", 
         description:
-          "Smooth espresso with steamed milk, local honey, and a dash of Ceylon cinnamon",
+          "Smooth espresso with steamed oat milk and local raw honey",
         price: "$5.25",
       },
       {
-        name: "Vanilla Bean Cold Brew",
+        name: "authentic americano",
         description:
-          "12-hour cold brew infused with Madagascar vanilla beans, served over ice",
+          "Double shot espresso with hot water, simple and uncompromising",
         price: "$4.75",
       },
     ],
   },
   espresso: {
-    title: "Espresso Classics",
+    title: "Pure Espresso",
     icon: "🫘",
     items: [
       {
-        name: "Traditional Espresso",
-        description: "Rich, full-bodied shot of our premium espresso blend",
+        name: "single origin shot",
+        description: "Rich, full-bodied shot from our single-origin beans",
         price: "$3.25",
       },
       {
-        name: "Americano",
+        name: "black americano",
         description:
-          "Fresh espresso shots with hot water for a smooth, clean taste",
+          "Fresh espresso shots with hot water, no frills",
         price: "$3.75",
       },
       {
-        name: "Cappuccino",
-        description: "Equal parts espresso, steamed milk, and velvety foam",
+        name: "classic cappuccino",
+        description: "Equal parts espresso, steamed milk, and natural foam",
         price: "$4.50",
       },
       {
-        name: "Flat White",
-        description: "Double shot espresso with microfoam steamed milk",
+        name: "flat white",
+        description: "Double shot espresso with microfoam oat milk",
         price: "$4.75",
       },
     ],
   },
   specialty: {
-    title: "Specialty Drinks",
+    title: "Unfiltered Specials",
     icon: "✨",
     items: [
       {
-        name: "Lavender Honey Latte",
+        name: "lavender calm",
         description:
-          "Calming lavender with local honey and perfectly steamed milk",
+          "Pure lavender with raw honey and steamed milk, no artificial additives",
         price: "$5.95",
       },
       {
-        name: "Spiced Chai Fusion",
-        description: "House-made chai blend with espresso and steamed milk",
+        name: "spiced chai authentic",
+        description: "House-ground chai spices with espresso and oat milk",
         price: "$5.50",
       },
       {
-        name: "Matcha Cloud",
+        name: "matcha pure",
         description:
-          "Premium ceremonial matcha with vanilla oat milk and cloud foam",
+          "Ceremonial grade matcha with oat milk, no sweeteners added",
         price: "$6.25",
       },
       {
-        name: "Turmeric Golden Milk",
+        name: "golden turmeric",
         description:
-          "Anti-inflammatory turmeric blend with coconut milk and warming spices",
+          "Fresh turmeric root with coconut milk and warming spices",
         price: "$4.95",
       },
     ],
   },
   pastries: {
-    title: "Fresh Pastries",
+    title: "Real Baked Goods",
     icon: "🥐",
     items: [
       {
-        name: "Almond Croissant",
+        name: "butter croissant",
         description:
-          "Buttery croissant filled with almond cream and topped with sliced almonds",
+          "Classic French croissant with real butter, baked fresh daily",
         price: "$4.25",
       },
       {
-        name: "Cinnamon Sugar Donut",
-        description: "Fresh-made cake donut rolled in cinnamon sugar",
+        name: "cinnamon roll", 
+        description: "House-made roll with Ceylon cinnamon and brown butter",
         price: "$3.75",
       },
       {
-        name: "Blueberry Scone",
+        name: "blueberry muffin",
         description:
-          "Tender scone bursting with fresh blueberries and lemon zest",
+          "Fresh blueberries in organic flour muffin, no preservatives",
         price: "$3.95",
       },
       {
-        name: "Chocolate Chip Muffin",
-        description: "Moist muffin loaded with Belgian chocolate chips",
+        name: "dark chocolate cookie",
+        description: "Belgian dark chocolate chunks in organic cookie dough",
         price: "$3.50",
       },
     ],
@@ -128,25 +128,25 @@ const menuData = {
 const specialtyFeatures = [
   {
     icon: "🌱",
-    title: "Organic & Fair Trade",
+    title: "No Artificial Ingredients",
     description:
-      "All our coffee beans are ethically sourced and certified organic",
+      "Pure, natural ingredients only - no artificial flavors, colors, or preservatives",
   },
   {
     icon: "👨‍🍳",
-    title: "Expert Roasted",
+    title: "Authentic Brewing",
     description:
-      "Small-batch roasting by our master roasters for perfect flavor",
+      "Traditional brewing methods and real craftsmanship, no shortcuts taken",
   },
   {
     icon: "🥛",
-    title: "Plant-Based Options",
-    description: "Oat, almond, and coconut milk alternatives available",
+    title: "Real Milk Alternatives",
+    description: "Fresh oat, almond, and coconut milk made in-house daily",
   },
   {
     icon: "⚡",
-    title: "Lightning Fast Service",
-    description: "Your perfect cup ready in under 3 minutes, guaranteed",
+    title: "Unfiltered Quality",
+    description: "Every cup made fresh to order, no compromises on taste",
   },
 ];
 
@@ -167,10 +167,13 @@ function createHTML() {
     <!-- Navigation -->
     <nav class="nav" id="nav">
       <div class="nav-content">
-        <div class="nav-logo">Brew & Bean</div>
+        <div class="nav-logo">
+          <img src="/src/assets/logos/logo-secondary.png" alt="nf" class="nav-logo-img" style="height: 32px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+          <span class="nav-logo-text" style="display: none;">nf</span>
+        </div>
         <ul class="nav-links">
           <li><a href="#menu">Menu</a></li>
-          <li><a href="#specialties">Specialties</a></li>
+          <li><a href="#specialties">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -178,8 +181,11 @@ function createHTML() {
 
     <!-- Header Section -->
     <header class="header" id="home">
-      <h1 class="logo">Brew & Bean</h1>
-      <p class="tagline">Where Every Cup Tells a Story</p>
+      <div class="logo-container">
+        <img src="/src/assets/logos/logo-primary.png" alt="no filter." class="main-logo" style="max-height: 120px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <h1 class="logo" style="display: none;">no filter.</h1>
+      </div>
+      <p class="tagline">authentic coffee. no compromises.</p>
       <div class="scroll-indicator">
         <div class="scroll-arrow"></div>
       </div>
@@ -189,7 +195,7 @@ function createHTML() {
     <main class="main-content">
       <!-- Menu Section -->
       <section class="menu-section" id="menu">
-        <h2 class="section-title">Our Handcrafted Menu</h2>
+        <h2 class="section-title">our unfiltered menu</h2>
         <div class="menu-categories">
           ${Object.entries(menuData)
             .map(
@@ -243,11 +249,11 @@ function createHTML() {
     <!-- Footer -->
     <footer class="footer" id="contact">
       <div class="footer-content">
-        <h3 class="footer-title">Visit Us Today</h3>
+        <h3 class="footer-title">find us. taste pure.</h3>
         <div class="footer-info">
           <div class="footer-section">
             <h4>Location</h4>
-            <p>123 Coffee Street<br>Bean City, BC 12345</p>
+            <p>123 Authentic Street<br>Pure City, PC 12345</p>
           </div>
           <div class="footer-section">
             <h4>Hours</h4>
@@ -255,10 +261,10 @@ function createHTML() {
           </div>
           <div class="footer-section">
             <h4>Contact</h4>
-            <p>Phone: (555) 123-BREW<br>Email: hello@brewandbean.com</p>
+            <p>Phone: (555) NO-FILTER<br>Email: hello@nofilter.coffee</p>
           </div>
         </div>
-        <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2025 Brew & Bean Coffee Shop. All rights reserved.</p>
+        <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2025 no filter. coffee. authentic taste, no compromises.</p>
       </div>
     </footer>
   `;

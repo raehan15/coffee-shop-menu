@@ -6,24 +6,24 @@
 }
 
 :root {
-  --primary-coffee: #8b4513;
-  --dark-coffee: #5d2a00;
-  --cream: #f5f2e8;
-  --gold: #d4af37;
-  --text-dark: #2c1810;
-  --text-light: #8b7355;
-  --accent: #e8b86d;
-  --gradient-primary: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
-  --gradient-secondary: linear-gradient(135deg, #f5f2e8 0%, #e8b86d 100%);
-  --shadow-soft: 0 10px 30px rgba(139, 69, 19, 0.15);
-  --shadow-hover: 0 20px 60px rgba(139, 69, 19, 0.25);
+  --primary-green: #204d48;
+  --secondary-gray: #9c4c4c;
+  --dark-charcoal: #2b2d2d;
+  --light-gray: #f7f7f7;
+  --text-dark: #2b2d2d;
+  --text-light: #666666;
+  --accent: #204d48;
+  --gradient-primary: linear-gradient(135deg, #204d48 0%, #2b2d2d 100%);
+  --gradient-secondary: linear-gradient(135deg, #f7f7f7 0%, #9c4c4c 100%);
+  --shadow-soft: 0 10px 30px rgba(32, 77, 72, 0.15);
+  --shadow-hover: 0 20px 60px rgba(32, 77, 72, 0.25);
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  background: var(--cream);
+  background: var(--light-gray);
   overflow-x: hidden;
 }
 
@@ -45,7 +45,7 @@ body {
 .coffee-cup {
   width: 80px;
   height: 80px;
-  border: 4px solid var(--cream);
+  border: 4px solid var(--light-gray);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   position: relative;
   animation: steam 2s ease-in-out infinite;
@@ -167,14 +167,14 @@ body {
 }
 
 .logo {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: -2px;
+  color: var(--text-dark);
+  text-align: center;
   margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: slideInUp 1s ease-out 0.5s forwards;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 4px 20px rgba(32, 77, 72, 0.3);
   position: relative;
 }
 
@@ -325,10 +325,35 @@ body {
 }
 
 .nav-logo {
-  font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--primary-coffee);
+  color: var(--text-dark);
+}
+
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+}
+
+.nav-logo-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: var(--primary-green);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.main-logo {
+  max-height: 120px;
+  width: auto;
+  filter: drop-shadow(0 4px 20px rgba(32, 77, 72, 0.3));
 }
 
 .nav-links {
@@ -362,11 +387,11 @@ body {
 }
 
 .section-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--dark-coffee);
+  color: var(--dark-charcoal);
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
@@ -442,9 +467,9 @@ body {
 }
 
 .category-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.8rem;
-  color: var(--dark-coffee);
+  color: var(--dark-charcoal);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -607,10 +632,10 @@ body {
 }
 
 .specialty-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  color: var(--dark-coffee);
+  color: var(--dark-charcoal);
 }
 
 .specialty-description {
@@ -620,8 +645,8 @@ body {
 
 /* Footer */
 .footer {
-  background: var(--dark-coffee);
-  color: var(--cream);
+  background: var(--dark-charcoal);
+  color: var(--light-gray);
   text-align: center;
   padding: 3rem 2rem;
 }
@@ -632,7 +657,7 @@ body {
 }
 
 .footer-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -783,21 +808,21 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--light-gray);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-coffee);
+  background: var(--primary-green);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-coffee);
+  background: var(--dark-charcoal);
 }
 
 /* Loading Screen Enhancement */
 .loading-text {
-  color: var(--cream);
+  color: var(--light-gray);
   font-family: "Inter", sans-serif;
   font-size: 1.2rem;
   margin-top: 2rem;

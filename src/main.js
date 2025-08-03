@@ -156,7 +156,7 @@ function createHTML() {
     <main class="main-content">
       <!-- Menu Section -->
       <section class="menu-section" id="menu">
-        <h2 class="section-title">our unfiltered menu</h2>
+        <h2 class="section-title">Our Unfiltered Menu</h2>
         <div class="menu-categories">
           ${Object.entries(menuData)
             .map(
@@ -229,7 +229,7 @@ function createHTML() {
     <!-- Footer -->
     <footer class="footer" id="contact">
       <div class="footer-content">
-        <h3 class="footer-title">find us. taste pure.</h3>
+        <h3 class="footer-title">Find Us. Taste Pure.</h3>
         <div class="footer-info">
           <div class="footer-section">
             <h4>Location</h4>

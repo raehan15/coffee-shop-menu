@@ -690,9 +690,7 @@ body {
 .specialty-cta {
   margin-top: 4rem;
   padding: 2rem;
-  background: rgba(32, 77, 72, 0.1);
   border-radius: 20px;
-  border: 2px solid var(--primary-green);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -701,7 +699,7 @@ body {
 .cta-text {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--primary-green);
+  color: #f7f7f7;
   margin: 0;
   font-style: italic;
 }
@@ -736,8 +734,8 @@ body {
 
 /* Footer */
 .footer {
-  background: var(--dark-charcoal);
-  color: var(--light-gray);
+  background: #f7f7f7;
+  color: #204d48;
   text-align: center;
   padding: 3rem 2rem;
 }
